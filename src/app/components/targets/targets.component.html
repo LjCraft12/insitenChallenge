@@ -1,0 +1,28 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Projection Status</th>
+    <th scope="col">Projection Company</th>
+    <th scope="col">Location</th>
+    <th scope="col">Financial Performance</th>
+    <th scope="col">Annual Revenue</th>
+  </tr>
+  </thead>
+  <tbody *ngIf="loaded && targets.length > 0">
+  <tr *ngFor="let target of targets" [class.list-group-item-info]="selectedTarget === target">
+    <td><button class="btn btn-outline-info"><a href="#" (click)="onSelect(target)">{{target.status}}</a></button></td>
+    <td>{{target.name}}</td>
+    <td>{{target.location}}</td>
+    <td>{{target.performance}}</td>
+    <td>{{target.revenue | currency}}</td>
+    <i class="fa fa-remove" (click)="onDelete(target)"></i>
+  </tr>
+  </tbody>
+</table>
+
+<div *ngIf="loaded && targets.length ===0 ">
+  <h1>There are no Targets</h1>
+</div>
+
+<div *ngIf="!loaded">Loading projection target table...</div>
+

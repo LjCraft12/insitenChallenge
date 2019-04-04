@@ -1,0 +1,15 @@
+
+<div class="card card-body mb-4">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <input type="text" class="form-control mb-2" placeholder="Status" name="status" [(ngModel)]="status">
+      <input type="text" class="form-control mb-2" placeholder="Company Name" name="name" [(ngModel)]="name">
+      <input type="text" class="form-control mb-2" placeholder="Location" name="location" [(ngModel)]="location">
+      <input type="text" class="form-control mb-2" placeholder="Contact" name="contact" [(ngModel)]="contact">
+      <input type="text" class="form-control mb-2" placeholder="Financial Performance" name="performance" [(ngModel)]="performance">
+      <input type="number" class="form-control mb-2" placeholder="Revenue in Dollars" name="revenue" [(ngModel)]="revenue">
+    </div>
+    <input type="submit" class="btn btn-outline-info mr-2" value="Add Target" [disabled]="!this.name">
+    <button type="button" class="btn btn-outline-warning ml-2" [hidden]="!this.name" (click)="clearState()">Clear</button>
+  </form>
+</div>
